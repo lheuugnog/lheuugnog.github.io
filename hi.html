@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote For Me!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .button-transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div id="vote-container" class="min-h-screen flex flex-col items-center justify-center text-center p-4">
+        <h1 id="main-question" class="text-4xl md:text-6xl font-bold mb-8">Will you vote for me for President?</h1>
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+            <button id="yes-button" class="button-transition bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-2xl shadow-lg transform hover:scale-105">
+                YES
+            </button>
+            <button id="no-button" class="button-transition bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg text-lg shadow-lg transform hover:scale-105">
+                NO
+            </button>
+        </div>
+    </div>
+
+    <div id="success-message" class="hidden min-h-screen flex-col items-center justify-center text-center p-4">
+         <div class="text-7xl mb-4">🎉</div>
+        <h2 class="text-5xl md:text-7xl font-bold text-green-500">Thank You!</h2>
+        <p class="text-xl md:text-2xl mt-4">You've made the right choice! A brighter future awaits.</p>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yes-button');
+        const noButton = document.getElementById('no-button');
+        const voteContainer = document.getElementById('vote-container');
+        const successMessage = document.getElementById('success-message');
+
+        let noClickCount = 0;
+        let yesButtonSize = { paddingY: 4, paddingX: 8, fontSize: 2 }; // Corresponds to py-4, px-8, text-2xl
+        let noButtonSize = { paddingY: 2, paddingX: 4, fontSize: 1.125 }; // Corresponds to py-2, px-4, text-lg
+
+        const noButtonMessages = [
+            "Are you sure?",
+            "Really sure?",
+            "Think again!",
+            "Last chance!",
+            "Seriously?",
+            "Don't do this to me!",
+            "My heart can't take it!",
+            "Okay, final final chance!",
+            "I'm begging you!",
+            "You're breaking my code!",
+            "Click YES!",
+        ];
+
+        noButton.addEventListener('click', () => {
+            noClickCount++;
+            
+            // Increase YES button size
+            yesButtonSize.paddingY += 0.5;
+            yesButtonSize.paddingX += 1;
+            yesButtonSize.fontSize += 0.25;
+
+            yesButton.style.padding = `${yesButtonSize.paddingY}rem ${yesButtonSize.paddingX}rem`;
+            yesButton.style.fontSize = `${yesButtonSize.fontSize}rem`;
+
+            // Decrease NO button size
+            if (noButtonSize.fontSize > 0.5) { // Stop it from disappearing completely
+                noButtonSize.paddingY = Math.max(0.1, noButtonSize.paddingY * 0.8);
+                noButtonSize.paddingX = Math.max(0.2, noButtonSize.paddingX * 0.8);
+                noButtonSize.fontSize = Math.max(0.5, noButtonSize.fontSize * 0.9);
+                
+                noButton.style.padding = `${noButtonSize.paddingY}rem ${noButtonSize.paddingX}rem`;
+                noButton.style.fontSize = `${noButtonSize.fontSize}rem`;
+            }
+            
+            // Change NO button text
+            const messageIndex = Math.min(noClickCount - 1, noButtonMessages.length - 1);
+            noButton.textContent = noButtonMessages[messageIndex];
+        });
+
+        yesButton.addEventListener('click', () => {
+            voteContainer.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
