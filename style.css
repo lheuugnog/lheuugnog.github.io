@@ -154,8 +154,47 @@ ul { list-style: none; padding-left: 0; }
 li { margin-bottom: 0.8rem; line-height: 1.6; }
 
 /* ---- Section Specific Styles ---- */
+/* ---- Section Specific Styles ---- */
 .journey-content { display: flex; flex-direction: column; gap: 2rem; }
-.journey-text { flex-shrink: 0; }
+
+/* New styles for the main journey content (text + image) */
+.journey-main {
+    display: flex;
+    gap: 2rem;
+    align-items: center; /* Vertically align text and image */
+}
+
+.journey-text { 
+    flex: 2; /* Give text more space */
+}
+
+.journey-image-container {
+    flex: 1; /* Give image less space */
+    position: relative; /* For the description span */
+    text-align: center; /* Center image if container is wider */
+}
+
+.journey-image {
+    width: 100%;
+    max-width: 250px; /* Control max size */
+    height: auto;
+    border-radius: 15px; /* Rounded corners */
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-image-container:hover .journey-image {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.5);
+}
+
+/* Style the new description to appear on hover, like the others */
+.journey-image-container:hover .image-description {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 5px); /* Move it down on hover */
+}
 
 @keyframes float {
   0% { transform: translateY(0px); }
@@ -291,5 +330,9 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
     }
     .social-links a {
         font-size: 2.2rem; /* Slightly smaller icons */
+    }
+    /* Stack the journey text and image on mobile */
+    .journey-main {
+        flex-direction: column;
     }
 }
