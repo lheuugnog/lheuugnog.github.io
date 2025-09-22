@@ -1,0 +1,403 @@
+/* ---- CSS VARIABLES & BASIC SETUP ---- */
+:root {
+    --deep-space: #0c0a1d;
+    --star-glow: #ffffff;
+    --accent-cyan: #00ffff;
+    --text-color: #e0e6f1;
+    --font-heading: 'Lora', serif;
+    --font-body: 'Nunito', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; cursor: none; } /* Hide default cursor */
+body {
+    background-color: var(--deep-space);
+    font-family: var(--font-body);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* ---- CURSOR TRAIL EFFECT ---- */
+.cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-cyan), transparent 60%);
+    pointer-events: none; /* Allows clicking through the element */
+    transform: translate(-50%, -50%); /* Center the trail on the cursor */
+    transition: transform 0.1s ease-out; /* Smooths the movement slightly */
+    z-index: 10000;
+}
+
+
+/* ---- INTERACTIVE PARALLAX BACKGROUND ---- */
+.parallax-container {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; z-index: -1;
+}
+.layer {
+    position: absolute; width: 100%; height: 100%;
+    transition: transform 0.1s ease-out;
+}
+.stars-bg {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-repeat: repeat;
+}
+.stars-bg:nth-of-type(2) { opacity: 0.5; }
+.nebula-bg {
+    background-image: radial-gradient(circle at 20% 30%, #4c3a69 0%, transparent 40%),
+                      radial-gradient(circle at 80% 70%, #3a4c69 0%, transparent 40%);
+    opacity: 0.4;
+}
+
+/* Shooting Star Animation */
+.shooting-star {
+    position: absolute; top: 50%; left: 50%;
+    width: 4px; height: 4px; background: #fff; border-radius: 50%;
+    box-shadow: 0 0 10px 0 #fff, 0 0 20px 0 var(--accent-cyan), 0 0 30px 0 var(--accent-cyan);
+    animation: shoot 10s linear infinite;
+}
+.shooting-star::before {
+    content: ''; position: absolute; width: 200px; height: 2px;
+    background: linear-gradient(90deg, #fff, transparent);
+    transform: translateX(-200px) translateY(-1px);
+}
+@keyframes shoot {
+    0% { transform: rotate(315deg) translateX(50vw); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(315deg) translateX(-50vw); opacity: 0; }
+}
+
+/* ---- CONTENT & LAYOUT ---- */
+.content { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero-image-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: rgba(44, 42, 79, 0.6);
+    border: 2px solid var(--accent-cyan);
+    margin-bottom: 2rem;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+.hero-name { font-family: var(--font-heading); font-size: 4.5rem; text-shadow: 0 0 20px var(--accent-cyan); }
+.hero-title { font-size: 1.4rem; margin-top: 1rem; letter-spacing: 2px; color: var(--accent-cyan); }
+.hero-subtitle { font-size: 1.1rem; margin-top: 0.5rem; }
+
+/* ---- In the .card style block, add position: relative ---- */
+.card {
+    background: linear-gradient(135deg, rgba(44, 42, 79, 0.4), rgba(44, 42, 79, 0.2));
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
+    padding: 2.5rem; margin-bottom: 5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative; /* Add this line */
+}
+
+/* ---- In the "Section Specific Styles" area, add this new rule for #journey ---- */
+#journey {
+    z-index: 5; /* This lifts the entire card and its tooltips on top */
+}
+
+
+/* ---- I've also slightly improved the .image-description positioning ---- */
+.image-description {
+    position: absolute;
+    top: 100%; /* Position from the top edge of the wrapper */
+    left: 50%;
+    transform: translate(-50%, 10px); /* Start 10px below */
+    background: rgba(12, 10, 29, 0.9);
+    color: var(--star-glow);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 12;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.floating-image-wrapper:hover .image-description {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 5px); /* Move into final position (5px below) */
+}
+/* Animated Gradient on Headings */
+h2 {
+    font-family: var(--font-heading); font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    background: linear-gradient(90deg, var(--star-glow), var(--accent-cyan), var(--star-glow));
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s linear infinite;
+}
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+
+/* List formatting */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* ---- Section Specific Styles ---- */
+.journey-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.journey-text {
+    flex-shrink: 0;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-images-container {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Increased height for bigger images */
+    margin-top: 1rem;
+}
+
+.floating-image-wrapper {
+    position: absolute;
+    width: 200px; /* UNIFORM & BIGGER size */
+    animation: float 6s ease-in-out infinite;
+}
+.floating-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.3));
+}
+
+.floating-image-wrapper:hover {
+    transform: scale(1.15) !important; /* Instant hover, overrides animation */
+    filter: drop-shadow(0 0 15px var(--accent-cyan));
+    z-index: 10;
+}
+
+
+/* Positioning and animation delays for overlap */
+.floating-image-wrapper:nth-of-type(1) { /* Red Hoodie */
+    top: 0%; left: 5%; animation-delay: 0s;
+}
+.floating-image-wrapper:nth-of-type(2) { /* Cream Hoodie Front */
+    top: 20%; left: 65%; animation-delay: -1.5s;
+}
+.floating-image-wrapper:nth-of-type(3) { /* Cream Hoodie Back */
+    top: 45%; left: 15%; animation-delay: -3s;
+}
+.floating-image-wrapper:nth-of-type(4) { /* SecSocks */
+    top: 60%; left: 60%; animation-delay: -4.5s;
+}
+.floating-image-wrapper:nth-of-type(5) { /* Hashtag Sticker */
+    top: 0%; left: 40%; animation-delay: -0.5s;
+}
+.floating-image-wrapper:nth-of-type(6) { /* Cat & Bee Sticker */
+    top: 70%; left: 40%; animation-delay: -2s;
+}
+
+/* Limited Edition Badge */
+.limited-edition-badge {
+    position: absolute; top: -10px; right: -10px;
+    background-color: #ff4500; color: white; padding: 5px 10px;
+    border-radius: 5px; font-size: 0.8em; font-weight: bold;
+    text-transform: uppercase; white-space: nowrap; z-index: 11;
+    transform: rotate(10deg); box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.floating-image-wrapper:hover .image-description {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 105%); /* Move into final position */
+}
+
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.vision-card {
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+.vision-card h3 {
+    color: var(--accent-cyan);
+    margin-bottom: 0.25rem;
+    font-family: var(--font-heading);
+}
+
+.preference-text {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.vision-card ul { padding-left: 1rem; }
+.vision-card li { list-style-type: '» '; padding-left: 0.5rem; }
+
+/* Hobbies Section */
+.hobbies-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+.hobby-item h4 {
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+.hobby-image-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(44, 42, 79, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hobby-item:hover .hobby-image-placeholder {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+
+@media (max-width: 768px) {
+    .vision-grid { grid-template-columns: 1fr; }
+    
+    .hobbies-container {
+        grid-template-columns: 1fr; /* Stacks hobbies into 1 column on mobile */
+    }
+
+    .floating-images-container {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .hobby-text-columns {
+        grid-template-columns: 1fr; /* Stacks hobby text on mobile */
+    }
+    .floating-image-wrapper {
+        position: relative;
+        top: auto; left: auto;
+        width: 150px; /* Slightly smaller on mobile */
+        animation: none;
+    }
+    .floating-image-wrapper:hover {
+        transform: scale(1.1) !important;
+    }
+    .image-description {
+        display: none; /* Hide descriptions on mobile for a cleaner look */
+    }
+    /* Styles for the new image row */
+    .hobby-images-container {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2rem; /* Adds space between images and text */
+    }
+
+    /* Styles for the new 3-column text grid */
+    .hobby-text-columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: var(--accent-cyan);
+    color: var(--deep-space);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+
+
+/* Scroll-triggered animation styles */
+.scroll-reveal {
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    opacity: 0; transform: translateY(50px);
+}
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---- SVG CONSTELLATION PORTFOLIO ---- */
+.constellation-wrapper { text-align: center; }
+#constellation-map { width: 100%; cursor: default; }
+.star { fill: var(--star-glow); transition: all 0.3s ease; cursor: pointer; }
+.star:hover, .star.active {
+    fill: var(--accent-cyan);
+    filter: drop-shadow(0 0 8px var(--accent-cyan));
+    transform-origin: center;
+    transform: scale(1.2);
+}
+.constellation-line {
+    fill: none; stroke: var(--accent-cyan); stroke-width: 1;
+    stroke-opacity: 0.5; transition: stroke-dashoffset 1s ease-in-out, filter 0.3s ease;
+}
+.constellation-line.active {
+    filter: drop-shadow(0 0 4px var(--accent-cyan));
+    stroke-opacity: 1;
+}
+#star-info {
+    margin-top: 1rem; min-height: 40px; font-size: 1.1rem;
+    color: var(--accent-cyan); font-weight: bold;
+}
+
+/* ---- SOCIAL LINKS ---- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem; /* Space between icons */
+    margin-top: 1.5rem;
+}
+.social-links a {
+    color: var(--accent-cyan);
+    font-size: 2.5rem; /* Icon size */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--star-glow);
+    transform: scale(1.2) translateY(-5px); /* Bouncy hover effect */
+}
+
+@keyframes zoomIn { from { transform: scale(3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+@keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.9; } }

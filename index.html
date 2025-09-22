@@ -3,91 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vote For Me plssss</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .button-transition {
-            transition: all 0.3s ease-in-out;
-        }
-    </style>
+    <title>Hugo | SecSoc Exec Nomination 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-    <div id="vote-container" class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-        <h1 id="main-question" class="text-4xl md:text-6xl font-bold mb-8">Will you vote for meeee &#x1F917</h1>
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-            <button id="yes-button" class="button-transition bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-2xl shadow-lg transform hover:scale-105">
-                YES
-            </button>
-            <button id="no-button" class="button-transition bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg text-lg shadow-lg transform hover:scale-105">
-                NO
-            </button>
-        </div>
+<body>
+    <div class="cursor-trail"></div>
+
+    <div class="parallax-container">
+        <div class="stars-bg layer" data-speed="-5"></div>
+        <div class="stars-bg layer" data-speed="-2"></div>
+        <div class="nebula-bg layer" data-speed="1"></div>
+        <div class="shooting-star"></div>
     </div>
 
-    <div id="success-message" class="hidden min-h-screen flex-col items-center justify-center text-center p-4">
-         <div class="text-7xl mb-4">🎉</div>
-        <h2 class="text-5xl md:text-7xl font-bold text-green-500">Thank You!</h2>
-        <p class="text-xl md:text-2xl mt-4">You made the only correct choice!!!!!!!</p>
-    </div>
+    <main class="content">
+        <header class="hero">
+            <img src="0.JPG" alt="selfie with a quokka" class="hero-image-placeholder"></div>
+            <h1 class="hero-name">Hiyaaaaaa, I'm Hugo</h1>
+            <!--p class="hero-title">Running for 2026 Treasurer (1st Pref) & VP Internals (2nd Pref)</p>-->
+            <p class="hero-subtitle">3rd Year CS/Commerce | 2025 Creative Director</p>
+        </header>
 
-    <script>
-        const yesButton = document.getElementById('yes-button');
-        const noButton = document.getElementById('no-button');
-        const voteContainer = document.getElementById('vote-container');
-        const successMessage = document.getElementById('success-message');
+        <section id="journey" class="card scroll-reveal">
+            <h2>About Me & My Journey</h2>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p>Hi there!!! I've been part of SecSoc since 2024 (at least the time I've been in this). As part of Creative Subcom last year I made some logos and merch, and some stickers that you might have seen on some laptops and phones as part of a GREAT GREAT team. </p><br><p>This year I went on exchange during T1, and did a lot of organising hoodies during T2. Thanks subcom for some great merch designs, amazing scones stickers and stunning logos!</p>
+                    <br>
+                    <p>
+                        Here's some stuff I've worked on in the past 2 years!
+                    </p>
+                    <br>
 
-        let noClickCount = 0;
-        let yesButtonSize = { paddingY: 4, paddingX: 8, fontSize: 2 }; // Corresponds to py-4, px-8, text-2xl
-        let noButtonSize = { paddingY: 2, paddingX: 4, fontSize: 1.125 }; // Corresponds to py-2, px-4, text-lg
-
-        const noButtonMessages = [
-            "Are you sure?",
-            "Really sure?",
-            "Think again!",
-            "Last chance!",
-            "Seriously?",
-            "Don't do this to me!",
-            "My heart can't take it!",
-            "Okay, final final chance!",
-            "I'm begging you!",
-            "Pwetty pweeeeassseeeee",
-            "Click YES!",
-        ];
-
-        noButton.addEventListener('click', () => {
-            noClickCount++;
-            
-            // Increase YES button size
-            yesButtonSize.paddingY += 0.5;
-            yesButtonSize.paddingX += 1;
-            yesButtonSize.fontSize += 0.25;
-
-            yesButton.style.padding = `${yesButtonSize.paddingY}rem ${yesButtonSize.paddingX}rem`;
-            yesButton.style.fontSize = `${yesButtonSize.fontSize}rem`;
-
-            // Decrease NO button size
-            if (noButtonSize.fontSize > 0.5) { // Stop it from disappearing completely
-                noButtonSize.paddingY = Math.max(0.1, noButtonSize.paddingY * 0.8);
-                noButtonSize.paddingX = Math.max(0.2, noButtonSize.paddingX * 0.8);
-                noButtonSize.fontSize = Math.max(0.5, noButtonSize.fontSize * 0.9);
+                </div>
                 
-                noButton.style.padding = `${noButtonSize.paddingY}rem ${noButtonSize.paddingX}rem`;
-                noButton.style.fontSize = `${noButtonSize.fontSize}rem`;
-            }
-            
-            // Change NO button text
-            const messageIndex = Math.min(noClickCount - 1, noButtonMessages.length - 1);
-            noButton.textContent = noButtonMessages[messageIndex];
-        });
+                <div class="floating-images-container">
+                    <div class="floating-image-wrapper">
+                        <img src="f.png" alt="SecSoc 2025 Red Hoodie" class="floating-img">
+                        <span class="limited-edition-badge">Limited Edition!</span>
+                        <span class="image-description">Never seen the light of day &#x1F440</span>
+                    </div>
+                    <div class="floating-image-wrapper">
+                        <img src="e.png" alt="SecSoc Hoodie Front" class="floating-img">
+                        <span class="image-description">Hoodies</span>
+                    </div>
+                    <div class="floating-image-wrapper">
+                        <img src="d.png" alt="SecSoc Cream Hoodie Back" class="floating-img">
+                        <span class="image-description">Hoodies</span>
+                    </div>
+                    <div class="floating-image-wrapper">
+                        <img src="a.png" alt="SecSocks Designs" class="floating-img">
+                        <span class="image-description">SecSocks!!!</span>
+                    </div>
+                    <div class="floating-image-wrapper">
+                        <img src="b.png" alt="SecSoc Pride Logo" class="floating-img">
+                        <span class="image-description">2024 Pride Month Logo</span>
+                    </div>
+                    <div class="floating-image-wrapper">
+                        <img src="c.png" alt="Cat and Bee Sticker" class="floating-img">
+                        <span class="image-description">2024 Scones Stickers</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        yesButton.addEventListener('click', () => {
-            voteContainer.classList.add('hidden');
-            successMessage.classList.remove('hidden');
-        });
-    </script>
+        <section id="hobbies" class="card scroll-reveal">
+            <h2>Some Hobbies (amongst many)</h2>
+            <div class="hobbies-container">
+                <div class="hobby-item">
+                    <img src="1.JPG" alt="Hiking the Huayhuash" class="hobby-image-placeholder">
+                    <h4>Travelling, hiking, camping</h4>
+                </div>
+                <div class="hobby-item">
+                    <img src="2.JPG" alt="Some duck" class="hobby-image-placeholder">
+                    <h4>Cooking (and eating)</h4>
+                </div>
+                <div class="hobby-item">
+                    <img src="3.JPG" alt="Pokemon cafe!" class="hobby-image-placeholder">
+                    <h4>All drinks (ESPECIALLY coffee and excluding water)</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="card scroll-reveal">
+            <h2>My Vision for 2026</h2>
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <h3><i class="fa-solid fa-rocket"></i> Treasurer</h3>
+                    <p class="preference-text">(First Preference)</p>
+                    <p>Trust me!!! I love managing money. I love Ozbargain! I love cashbacks! and an unlimited line of credit!</p>
+                    <br>
+                    <p>My Goals:</p>
+                    <br>
+                    <ul>
+                        <li><i class="fa-solid fa-chart-line"></i> Make us rich.</li>
+                        <li><i class="fa-solid fa-receipt"></i> while being very transparent!</li>
+                        <li><i class="fa-solid fa-file-invoice-dollar"></i> and delivering value for every dollar!</li>
+                    </ul>
+                    <p>I've tracked every dollar of the $48k I spent in my last 6 months overseas:</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1syh6CrfmpFkTjM1BIJoQ9HsaXLgzZfRINzQim8HSZrs/edit?usp=sharing" target="_blank" class="cta-button">My Exchange/Europe expense sheet!!!</a>
+                    
+                    <br><br>
+                    <ul>
+                        <li>
+                            I spent AU$12.81 on toilets
+                        </li>
+                        <li>
+                            16 nights in a bus, 9 in a car parking lot, 2 in an airport :)
+                        </li>
+                    </ul>
+                    <p>
+                        And we made a profit on hoodies this year! Even with the fees associated with moving orders to Square's payment processor and losing out on grants compared to last year.
+                    </p>
+                </div>
+                <div class="vision-card">
+                    <h3><i class="fa-solid fa-satellite-dish"></i> VP Internals</h3>
+                    <p class="preference-text">(Second Preference)</p>
+                    <p>I make a lot of plans and notes. I absorb a lot of material and know what is happening. I read the constitution :)</p>
+                    <br>
+                    <ul>
+                        <li><i class="fa-solid fa-gavel"></i> Very unrigged elections.</li>
+                        <li><i class="fa-solid fa-book-journal-whills"></i>  Immaculate agendas and meeting minutes.</li>
+                        <li><i class="fa-solid fa-folder-open"></i> Documenting everything.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="connect" class="card scroll-reveal">
+            <h2>Connect With Me</h2>
+            <p>Any questions? 🤔</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hugo-leung-032b98265" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/lheuugnog/" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="mailto:lheuugnog@gmail.com" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
