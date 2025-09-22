@@ -302,21 +302,32 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
         gap: 2.5rem;
     }
 
-    /* FIX: Switched to a responsive grid for a cleaner, more robust mobile layout */
+    /* FIX: Reverted to absolute positioning for a haphazard mobile layout that stays in the box */
     .floating-images-container {
         position: relative;
-        height: auto; /* Allow container to grow */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1.5rem;
+        height: 400px; /* Give the container a defined height for items to float in */
+        display: block; /* Remove the grid layout */
         margin-top: 2rem;
     }
     .floating-image-wrapper {
-        position: relative; /* Override absolute positioning */
-        top: auto;
-        left: auto;
-        width: 100%; /* Let the grid cell control the size */
-        animation: none; /* Disable floating animation */
+        position: absolute; /* Ensure absolute positioning is active */
+        width: 140px; /* Make images smaller to fit on mobile */
+        animation: float 6s ease-in-out infinite; /* Re-enable floating animation */
+    }
+
+    /* New, mobile-specific positions for a haphazard look */
+    .floating-image-wrapper:nth-of-type(1) { top: 5%; left: 0%; animation-delay: 0s; }
+    .floating-image-wrapper:nth-of-type(2) { top: 10%; left: 60%; animation-delay: -1.5s; }
+    .floating-image-wrapper:nth-of-type(3) { top: 40%; left: 5%; animation-delay: -3s; }
+    .floating-image-wrapper:nth-of-type(4) { top: 55%; left: 65%; animation-delay: -4.5s; }
+    .floating-image-wrapper:nth-of-type(5) { top: 25%; left: 30%; animation-delay: -0.5s; }
+    .floating-image-wrapper:nth-of-type(6) { top: 70%; left: 10%; animation-delay: -2s; }
+
+    .floating-image-wrapper:hover {
+        transform: scale(1.15) !important; /* Keep a slightly larger hover effect */
+    }
+    .image-description {
+        display: none; /* Keep descriptions hidden on mobile to avoid clutter */
     }
 
     .floating-image-wrapper:hover {
