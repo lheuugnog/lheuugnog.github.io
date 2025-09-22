@@ -1,4 +1,4 @@
-/* ---- CSS VARIABLES & BASIC SETUP ---- */
+/* ---- Setup ---- */
 :root {
     --deep-space: #0c0a1d;
     --star-glow: #ffffff;
@@ -9,15 +9,14 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; cursor: none; } /* Hide default cursor */
+html { scroll-behavior: smooth; cursor: none; } /* hide default cursor */
 body {
     font-family: var(--font-body);
     color: var(--text-color);
     overflow-x: hidden;
-    /* REMOVED background-color from here to fix parallax visibility */
 }
 
-/* ---- CURSOR TRAIL EFFECT ---- */
+/* ---- Cusror effect ---- */
 .cursor-trail {
     position: fixed;
     width: 20px;
@@ -41,7 +40,7 @@ body {
 }
 
 
-/* ---- INTERACTIVE PARALLAX BACKGROUND ---- */
+/* ---- BG + parallax ---- */
 .parallax-container {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%; z-index: -1;
@@ -62,7 +61,7 @@ body {
     opacity: 0.4;
 }
 
-/* Shooting Star Animation */
+/* Shooting star */
 .shooting-star {
     position: absolute; top: 50%; left: 50%;
     width: 4px; height: 4px; background: #fff; border-radius: 50%;
@@ -90,7 +89,6 @@ body {
     background-color: rgba(44, 42, 79, 0.6);
     border: 2px solid var(--accent-cyan);
     margin-bottom: 2rem;
-    /* The animation property below replaces the static box-shadow */
     animation: pulsate-glow 4s ease-in-out infinite;
 }
 .title-name { font-family: var(--font-heading); font-size: 4.5rem; text-shadow: 0 0 20px var(--accent-cyan); }
@@ -182,32 +180,30 @@ h2 {
 ul { list-style: none; padding-left: 0; }
 li { margin-bottom: 0.8rem; line-height: 1.6; }
 
-/* ---- Section Specific Styles ---- */
-/* ---- Section Specific Styles ---- */
+/* ---- Section Specific Stufs ---- */
 .journey-content { display: flex; flex-direction: column; gap: 2rem; }
 
-/* New styles for the main journey content (text + image) */
 .journey-main {
     display: flex;
     gap: 2rem;
-    align-items: center; /* Vertically align text and image */
+    align-items: center; /* vertically align text/img */
 }
 
 .journey-text { 
-    flex: 2; /* Give text more space */
+    flex: 2;
 }
 
 .journey-image-container {
-    flex: 1; /* Give image less space */
-    position: relative; /* For the description span */
-    text-align: center; /* Center image if container is wider */
+    flex: 1;
+    position: relative;
+    text-align: center;
 }
 
 .journey-image {
     width: 100%;
-    max-width: 250px; /* Control max size */
+    max-width: 250px;
     height: auto;
-    border-radius: 15px; /* Rounded corners */
+    border-radius: 15px; /* rounded corners */
     border: 2px solid var(--accent-cyan);
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -218,11 +214,11 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
     box-shadow: 0 0 35px rgba(0, 255, 255, 0.5);
 }
 
-/* Style the new description to appear on hover, like the others */
+/* Appear on hover */
 .journey-image-container:hover .image-description {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, 5px); /* Move it down on hover */
+    transform: translate(-50%, 5px); /* Move down on hover */
 }
 
 @keyframes float {
@@ -288,16 +284,7 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
 .scroll-reveal { transition: opacity 0.8s ease-out, transform 0.8s ease-out; opacity: 0; transform: translateY(50px); }
 .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-/* ---- SVG CONSTELLATION PORTFOLIO ---- */
-.constellation-wrapper { text-align: center; }
-#constellation-map { width: 100%; cursor: default; }
-.star { fill: var(--star-glow); transition: all 0.3s ease; cursor: pointer; }
-.star:hover, .star.active { fill: var(--accent-cyan); filter: drop-shadow(0 0 8px var(--accent-cyan)); transform-origin: center; transform: scale(1.2); }
-.constellation-line { fill: none; stroke: var(--accent-cyan); stroke-width: 1; stroke-opacity: 0.5; transition: stroke-dashoffset 1s ease-in-out, filter 0.3s ease; }
-.constellation-line.active { filter: drop-shadow(0 0 4px var(--accent-cyan)); stroke-opacity: 1; }
-#star-info { margin-top: 1rem; min-height: 40px; font-size: 1.1rem; color: var(--accent-cyan); font-weight: bold; }
-
-/* ---- SOCIAL LINKS ---- */
+/* ---- Social ---- */
 .social-links { display: flex; justify-content: center; align-items: center; gap: 3rem; margin-top: 1.5rem; }
 .social-links a { color: var(--accent-cyan); font-size: 2.5rem; transition: transform 0.3s ease, color 0.3s ease; }
 .social-links a:hover { color: var(--star-glow); transform: scale(1.2) translateY(-5px); }
@@ -314,7 +301,7 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
   }
 }
 
-/* ---- MOBILE RESPONSIVENESS ---- */
+/* ---- Mobile changes ---- */
 @media (max-width: 768px) {
     .content {
         padding: 0 1rem;
@@ -326,7 +313,6 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
         font-size: 1.2rem;
     }
     .title-image-placeholder {
-        /* FIX: Reduced size for better mobile proportions */
         width: 120px;
         height: 120px;
     }
@@ -335,18 +321,17 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
         margin-bottom: 3rem;
     }
     .vision-grid {
-        grid-template-columns: 1fr; /* Stack vision cards */
+        grid-template-columns: 1fr; /* Stack cards */
     }
     .hobbies-container {
         grid-template-columns: 1fr; /* Stack hobbies */
         gap: 2.5rem;
     }
 
-    /* FIX: Reverted to absolute positioning for a haphazard mobile layout that stays in the box */
     .floating-images-container {
         position: relative;
         height: 400px; /* Give the container a defined height for items to float in */
-        display: block; /* Remove the grid layout */
+        display: block;
         margin-top: 2rem;
     }
     .floating-image-wrapper {
@@ -355,7 +340,6 @@ li { margin-bottom: 0.8rem; line-height: 1.6; }
         animation: float 6s ease-in-out infinite; /* Re-enable floating animation */
     }
 
-    /* New, mobile-specific positions for a haphazard look */
     .floating-image-wrapper:nth-of-type(1) { top: 5%; left: 0%; animation-delay: 0s; }
     .floating-image-wrapper:nth-of-type(2) { top: 10%; left: 60%; animation-delay: -1.5s; }
     .floating-image-wrapper:nth-of-type(3) { top: 40%; left: 5%; animation-delay: -3s; }
