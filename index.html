@@ -22,9 +22,11 @@
 
     <main class="content">
         <header class="title">
-            <!-- MODIFIED: Reverted to original image source to fix loading issue. -->
-            <img src="0.JPG" alt="selfie with a quokka" class="title-image-placeholder" width="200" height="200">
-            <h1 class="title-name">Hiyaaaaaa, I'm Hugo</h1>
+            <picture>
+                <source srcset="0.webp" type="image/webp">
+                <img src="0.JPG" alt="selfie with a quokka" class="title-image-placeholder" width="200" height="200">
+            </picture>
+            <h1 class="title-name">Hiyaaaaa, I'm Hugo</h1>
             <p class="title-subtitle">3rd Year CS/Commerce | 2025 Creative Director</p>
 
             <a href="#journey" class="scroll-down-indicator" aria-label="Scroll down">
@@ -50,37 +52,53 @@
 
                     </div>
                     <div class="journey-image-container">
-                         <!-- MODIFIED: Reverted to original image source. Added lazy loading. -->
-                        <img src="IMG_2345.gif" alt="Eating cake during SecSoc Birthday Party 2025" class="journey-image" loading="lazy" width="250" height="250">
+                         <img src="IMG_2345.gif" alt="Eating cake during SecSoc Birthday Party 2025" class="journey-image" loading="lazy" width="250" height="250">
                         <span class="image-description">nom nom nom</span>
                     </div>
                 </div>
                 
                 <div class="floating-images-container">
-                     <!-- MODIFIED: Reverted all images to their original sources. -->
                     <div class="floating-image-wrapper">
-                        <img src="f.png" alt="SecSoc 2025 Red Hoodie" class="floating-img" loading="lazy" width="200" height="200">
+                        <picture>
+                            <source srcset="f.webp" type="image/webp">
+                            <img src="f.png" alt="SecSoc 2025 Red Hoodie" class="floating-img" loading="lazy" width="200" height="200">
+                        </picture>
                         <span class="limited-edition-badge">Limited Edition!</span>
                         <span class="image-description">Never seen the light of day &#x1F440</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="e.png" alt="SecSoc Hoodie Front" class="floating-img" loading="lazy" width="200" height="200">
+                        <picture>
+                            <source srcset="e.webp" type="image/webp">
+                            <img src="e.png" alt="SecSoc Hoodie Front" class="floating-img" loading="lazy" width="200" height="200">
+                        </picture>
                         <span class="image-description">Hoodies</span>
                     </div>
                     <div class="floating-image-wrapper">
-                       <img src="d.png" alt="SecSoc Cream Hoodie Back" class="floating-img" loading="lazy" width="200" height="200">
+                       <picture>
+                           <source srcset="d.webp" type="image/webp">
+                           <img src="d.png" alt="SecSoc Cream Hoodie Back" class="floating-img" loading="lazy" width="200" height="200">
+                       </picture>
                         <span class="image-description">Hoodies</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="a.png" alt="SecSocks Designs" class="floating-img" loading="lazy" width="200" height="200">
+                        <picture>
+                            <source srcset="a.webp" type="image/webp">
+                            <img src="a.png" alt="SecSocks Designs" class="floating-img" loading="lazy" width="200" height="200">
+                        </picture>
                         <span class="image-description">SecSocks!!!</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="b.png" alt="SecSoc Pride Logo" class="floating-img" loading="lazy" width="200" height="200">
+                        <picture>
+                            <source srcset="b.webp" type="image/webp">
+                            <img src="b.png" alt="SecSoc Pride Logo" class="floating-img" loading="lazy" width="200" height="200">
+                        </picture>
                         <span class="image-description">2024 Pride Month Logo</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="c.png" alt="Cat and Bee Sticker" class="floating-img" loading="lazy" width="260" height="260">
+                        <picture>
+                            <source srcset="c.webp" type="image/webp">
+                            <img src="c.png" alt="Cat and Bee Sticker" class="floating-img" loading="lazy" width="260" height="260">
+                        </picture>
                         <span class="image-description">2024 Scones Stickers</span>
                     </div>
                 </div>
@@ -89,17 +107,27 @@
 
         <section id="hobbies" class="card scroll-reveal">
             <h2>Some Hobbies (amongst many)</h2>
+            <br>
             <div class="hobbies-container">
                 <div class="hobby-item">
-                    <img src="1.JPG" alt="Hiking the Huayhuash" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
+                    <picture>
+                        <source srcset="1.webp" type="image/webp">
+                        <img src="1.JPG" alt="Hiking the Huayhuash" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
+                    </picture>
                     <h4>Travelling, hiking, camping</h4>
                 </div>
                 <div class="hobby-item">
-                    <img src="2.JPG" alt="Some duck" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
+                    <picture>
+                        <source srcset="2.webp" type="image/webp">
+                        <img src="2.JPG" alt="Some duck" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
+                    </picture>
                     <h4>Cooking (and eating)</h4>
                 </div>
                 <div class="hobby-item">
-                   <img src="3.JPG" alt="Pokemon cafe!" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
+                   <picture>
+                       <source srcset="3.webp" type="image/webp">
+                       <img src="3.JPG" alt="Pokemon cafe!" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
+                   </picture>
                     <h4>All drinks (ESPECIALLY coffee and excluding water)</h4>
                 </div>
             </div>
@@ -187,4 +215,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
