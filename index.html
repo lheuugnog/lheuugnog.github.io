@@ -22,7 +22,8 @@
 
     <main class="content">
         <header class="title">
-            <img src="0.JPG" alt="selfie with a quokka" class="title-image-placeholder">
+            <!-- MODIFIED: Reverted to original image source to fix loading issue. -->
+            <img src="0.JPG" alt="selfie with a quokka" class="title-image-placeholder" width="200" height="200">
             <h1 class="title-name">Hiyaaaaaa, I'm Hugo</h1>
             <p class="title-subtitle">3rd Year CS/Commerce | 2025 Creative Director</p>
 
@@ -49,35 +50,37 @@
 
                     </div>
                     <div class="journey-image-container">
-                        <img src="IMG_2345.gif" alt="Eating cake during SecSoc Birthday Party 2025" class="journey-image">
+                         <!-- MODIFIED: Reverted to original image source. Added lazy loading. -->
+                        <img src="IMG_2345.gif" alt="Eating cake during SecSoc Birthday Party 2025" class="journey-image" loading="lazy" width="250" height="250">
                         <span class="image-description">nom nom nom</span>
                     </div>
                 </div>
                 
                 <div class="floating-images-container">
+                     <!-- MODIFIED: Reverted all images to their original sources. -->
                     <div class="floating-image-wrapper">
-                        <img src="f.png" alt="SecSoc 2025 Red Hoodie" class="floating-img">
+                        <img src="f.png" alt="SecSoc 2025 Red Hoodie" class="floating-img" loading="lazy" width="200" height="200">
                         <span class="limited-edition-badge">Limited Edition!</span>
                         <span class="image-description">Never seen the light of day &#x1F440</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="e.png" alt="SecSoc Hoodie Front" class="floating-img">
+                        <img src="e.png" alt="SecSoc Hoodie Front" class="floating-img" loading="lazy" width="200" height="200">
                         <span class="image-description">Hoodies</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="d.png" alt="SecSoc Cream Hoodie Back" class="floating-img">
+                       <img src="d.png" alt="SecSoc Cream Hoodie Back" class="floating-img" loading="lazy" width="200" height="200">
                         <span class="image-description">Hoodies</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="a.png" alt="SecSocks Designs" class="floating-img">
+                        <img src="a.png" alt="SecSocks Designs" class="floating-img" loading="lazy" width="200" height="200">
                         <span class="image-description">SecSocks!!!</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="b.png" alt="SecSoc Pride Logo" class="floating-img">
+                        <img src="b.png" alt="SecSoc Pride Logo" class="floating-img" loading="lazy" width="200" height="200">
                         <span class="image-description">2024 Pride Month Logo</span>
                     </div>
                     <div class="floating-image-wrapper">
-                        <img src="c.png" alt="Cat and Bee Sticker" class="floating-img">
+                        <img src="c.png" alt="Cat and Bee Sticker" class="floating-img" loading="lazy" width="260" height="260">
                         <span class="image-description">2024 Scones Stickers</span>
                     </div>
                 </div>
@@ -88,15 +91,15 @@
             <h2>Some Hobbies (amongst many)</h2>
             <div class="hobbies-container">
                 <div class="hobby-item">
-                    <img src="1.JPG" alt="Hiking the Huayhuash" class="hobby-image-placeholder">
+                    <img src="1.JPG" alt="Hiking the Huayhuash" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
                     <h4>Travelling, hiking, camping</h4>
                 </div>
                 <div class="hobby-item">
-                    <img src="2.JPG" alt="Some duck" class="hobby-image-placeholder">
+                    <img src="2.JPG" alt="Some duck" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
                     <h4>Cooking (and eating)</h4>
                 </div>
                 <div class="hobby-item">
-                    <img src="3.JPG" alt="Pokemon cafe!" class="hobby-image-placeholder">
+                   <img src="3.JPG" alt="Pokemon cafe!" class="hobby-image-placeholder" loading="lazy" width="120" height="120">
                     <h4>All drinks (ESPECIALLY coffee and excluding water)</h4>
                 </div>
             </div>
@@ -134,7 +137,9 @@
                         </li>
                     </ul>
                     <p>
-                        And we made a profit on hoodies this year! Even with the fees associated with moving orders to Square's payment processor and losing out on grants compared to last year.
+                        And we made a profit on hoodies this year - 
+                            <i>I got the cost price down by almost $10 </i>
+                        !!! even with the fees associated with moving orders to Square's payment processor and losing out on grants compared to last year.
                     </p>
                 </div>
                 <div class="vision-card">
@@ -182,3 +187,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

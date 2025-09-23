@@ -19,13 +19,15 @@ body {
 /* ---- Cusror effect ---- */
 .cursor-trail {
     position: fixed;
+    top: 0; /* Positioned with transform now */
+    left: 0; /* Positioned with transform now */
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: radial-gradient(circle, var(--accent-cyan), transparent 60%);
     pointer-events: none; /* Allows clicking through the element */
     transform: translate(-50%, -50%); /* Center the trail on the cursor */
-    transition: transform 0.1s ease-out; /* Smooths the movement slightly */
+    /* MODIFIED: Removed transition as requestAnimationFrame handles smoothing */
     z-index: 10000;
 }
 
@@ -48,7 +50,7 @@ body {
 }
 .layer {
     position: absolute; width: 100%; height: 100%;
-    transition: transform 0.1s ease-out;
+    /* MODIFIED: Removed transition as requestAnimationFrame handles smoothing */
 }
 .stars-bg {
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
@@ -90,6 +92,7 @@ body {
     border: 2px solid var(--accent-cyan);
     margin-bottom: 2rem;
     animation: pulsate-glow 4s ease-in-out infinite;
+    object-fit: cover; /* Ensures image covers the area */
 }
 .title-name { font-family: var(--font-heading); font-size: 4.5rem; text-shadow: 0 0 20px var(--accent-cyan); }
 .title-title { font-size: 1.4rem; margin-top: 1rem; letter-spacing: 2px; color: var(--accent-cyan); }
@@ -125,7 +128,9 @@ body {
 
 .card {
     background: linear-gradient(135deg, rgba(44, 42, 79, 0.4), rgba(44, 42, 79, 0.2));
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    /* MODIFIED: Reduced blur radius for better performance */
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
     padding: 2.5rem; margin-bottom: 5rem;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
